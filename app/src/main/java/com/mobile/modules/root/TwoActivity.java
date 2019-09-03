@@ -2,19 +2,12 @@ package com.mobile.modules.root;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ActionBarOverlayLayout;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
 
 import com.mobile.modules.R;
 
@@ -63,11 +56,11 @@ public class TwoActivity extends AppCompatActivity {
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         findViewById(R.id.btn_hide).setOnClickListener(v -> {
-            if (actionBar.isShowing()) {
-                actionBar.hide();
-            } else {
-                actionBar.show();
-            }
+//            if (actionBar.isShowing()) {
+//                actionBar.hide();
+//            } else {
+//                actionBar.show();
+//            }
         });
         findViewById(R.id.btn_logo).setOnClickListener(v -> {
             boolean useLogo = (actionBar.getDisplayOptions() & ActionBar.DISPLAY_USE_LOGO) != 0;

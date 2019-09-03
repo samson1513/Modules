@@ -122,6 +122,9 @@ jobs:
       - checkout
       - *restore_cache
       - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
+      - run:
           name: Download dependencies
           command: ./gradlew androidDependencies
       - *save_cache
@@ -142,6 +145,9 @@ jobs:
     steps:
       - checkout
       - *restore_cache
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       - run:
           name: Download dependencies
           command: ./gradlew androidDependencies
@@ -171,6 +177,9 @@ jobs:
       - checkout
       - *restore_cache
       - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
+      - run:
           name: Download dependencies
           command: ./gradlew androidDependencies
       - *save_cache
@@ -194,6 +203,9 @@ jobs:
     steps:
       - checkout
       - *restore_cache
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       - run:
           name: Download dependencies
           command: ./gradlew androidDependencies
@@ -247,6 +259,9 @@ jobs:
       - checkout
       - *restore_cache
       - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
+      - run:
           name: Download dependencies
           command: ./gradlew androidDependencies
       - *attach_debug_workspace
@@ -278,6 +293,9 @@ jobs:
       - *attach_release_workspace
       - *restore_cache
       - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
+      - run:
           name: Download dependencies
           command: ./gradlew androidDependencies
       - *export_fabric_key
@@ -291,7 +309,7 @@ workflows:
   workflow:
     jobs:
       - build_debug
-      - build_release
+#      - build_release
 #      - check_quality:
 #          requires:
 #            - build_debug

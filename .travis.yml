@@ -45,8 +45,9 @@ before_script:
 #  - gcloud components update
 #  - gcloud components install
   - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file key.json
-  - gcloud auth login travisci@modules-4b395.iam.gserviceaccount.com
+#  - gcloud auth login travisci@modules-4b395.iam.gserviceaccount.com
   - gcloud config set project modules-4b395
+  - gcloud config set account samson1513@gmail.com
 
 script:
   - ./gradlew -PciBuild=true :app:assembleAndroidTest

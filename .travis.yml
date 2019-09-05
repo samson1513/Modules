@@ -76,7 +76,7 @@ before_script:
 #  - source /home/travis/google-cloud-sdk/path.bash.inc
 #  - gcloud version
   # Add gcloud auth
-  - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file=key.json --project=github-stars-1f51a
+  - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file key.json
 
 script:
 #  - ./gradlew clean build connectedCheck -PdisablePreDex --stacktrace

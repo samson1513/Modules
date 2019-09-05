@@ -20,17 +20,10 @@ env:
 android:
   components:
     - tools
-#    - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS
     - android-$ANDROID_API
-#    - android-$EMULATOR_API_LEVEL
-#    - extra-google-m2repository
-#    - extra-android-m2repository
     - extra-android-support
     - extra
-#    - addon-google_apis-google-19
-#    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
-#    - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
   licenses:
     - android-sdk-preview-license-.+
     - android-sdk-license-.+
@@ -44,44 +37,15 @@ before_install:
   - ./gradlew dependencies || true
   - openssl aes-256-cbc -K $encrypted_36a497b301fb_key -iv $encrypted_36a497b301fb_iv -in key.json.enc -out key.json -d
 before_script:
-#  - android list sdk --extended --no-ui --all
-#  - echo "y" | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-21,sys-img-x86_64-android-21
-#  - android list targets
-#  - echo no | android create avd --force -n test -t android-21 --abi default/armeabi-v7a
-#  - emulator -avd test -no-skin -no-audio -no-window &
-#  - android-wait-for-emulator
-#  - adb shell input keyevent 82 &
-
-#  - wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-218.0.0-linux-x86.tar.gz
-#  - tar zxf google-cloud-sdk-218.0.0-linux-x86.tar.gz google-cloud-sdk
-#  - echo n | ./google-cloud-sdk/install.sh
-#  - gcloud auth activate-service-account --key-file dir-to-your-service-account-key.json
-#  - gcloud config set project modules-4b395
-#  - echo y | gcloud components update
-#  - echo y | gcloud components install
   # Firebase setup
   - wget --quiet --output-document=/tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz
   - tar zxf /tmp/google-cloud-sdk.tar.gz google-cloud-sdk
   - echo ./google-cloud-sdk/install.sh
   - source ./google-cloud-sdk/path.bash.inc
 
-  # Setup and configure the project
-#  - gcloud components update
-  - echo modules-4b395
-  - gcloud config set project modules-4b395
-
-#  - gcloud version || true
-#  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export $CLOUDSDK_CORE_DISABLE_PROMPTS; curl https://sdk.cloud.google.com | bash; fi
-  # Add gcloud to $PATH
-#  - source /home/travis/google-cloud-sdk/path.bash.inc
-#  - gcloud version
-  # Add gcloud auth
-  - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file key.json
-
 script:
-#  - ./gradlew clean build connectedCheck -PdisablePreDex --stacktrace
-#  - ./gradlew build assembleDebug
   - ./gradlew -PciBuild=true :app:assembleAndroidTest
-#  - gcloud components update
+  - gcloud config set project modules-4b395
+  - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file key.json
   - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Nexus4,version=26,locale=en_US,orientation=portrait --timeout 20m
 #  - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --device model=Nexus4,version=21

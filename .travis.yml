@@ -61,7 +61,6 @@ before_script:
 #  - gcloud config set project modules-4b395
 #  - echo y | gcloud components update
 #  - echo y | gcloud components install
-
   # Firebase setup
   - wget --quiet --output-document=/tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz
   - mkdir -p /opt

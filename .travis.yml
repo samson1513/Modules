@@ -42,8 +42,8 @@ before_script:
   - tar zxf /tmp/google-cloud-sdk.tar.gz google-cloud-sdk
   - echo ./google-cloud-sdk/install.sh
   - source ./google-cloud-sdk/path.bash.inc
-  - gcloud components update
-  - gcloud components install
+#  - gcloud components update
+#  - gcloud components install
   - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file key.json
   - gcloud auth login travisci@modules-4b395.iam.gserviceaccount.com
   - gcloud config set project modules-4b395

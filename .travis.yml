@@ -70,10 +70,10 @@ before_script:
   - echo modules-4b395
   - gcloud config set project modules-4b395
 
-  - gcloud version || true
-  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export $CLOUDSDK_CORE_DISABLE_PROMPTS; curl https://sdk.cloud.google.com | bash; fi
+#  - gcloud version || true
+#  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export $CLOUDSDK_CORE_DISABLE_PROMPTS; curl https://sdk.cloud.google.com | bash; fi
   # Add gcloud to $PATH
-  - source /home/travis/google-cloud-sdk/path.bash.inc
+#  - source /home/travis/google-cloud-sdk/path.bash.inc
 #  - gcloud version
   # Add gcloud auth
   - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file=key.json --project=github-stars-1f51a

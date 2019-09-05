@@ -82,6 +82,6 @@ script:
 #  - ./gradlew clean build connectedCheck -PdisablePreDex --stacktrace
 #  - ./gradlew build assembleDebug
   - ./gradlew -PciBuild=true :app:assembleAndroidTest
-  - gcloud components update
+#  - gcloud components update
   - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Nexus4,version=26,locale=en_US,orientation=portrait --environment-variables --directories-to-pull=/sdcard/tmp --timeout 20m
 #  - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --device model=Nexus4,version=21

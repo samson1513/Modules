@@ -44,8 +44,8 @@ before_script:
   - source ./google-cloud-sdk/path.bash.inc
 #  - gcloud components update
 #  - gcloud components install
-  - gcloud config set project modules-4b395
-  - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file key.json
+#  - gcloud config set project modules-4b395
+  - gcloud auth activate-service-account travisci@modules-4b395.iam.gserviceaccount.com --key-file key.json --project modules-4b395
 #  - gcloud auth login travisci@modules-4b395.iam.gserviceaccount.com
 
 script:

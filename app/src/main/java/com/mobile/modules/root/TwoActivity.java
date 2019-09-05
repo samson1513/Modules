@@ -56,11 +56,11 @@ public class TwoActivity extends AppCompatActivity {
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         findViewById(R.id.btn_hide).setOnClickListener(v -> {
-//            if (actionBar.isShowing()) {
-//                actionBar.hide();
-//            } else {
-//                actionBar.show();
-//            }
+            if (actionBar.isShowing()) {
+                actionBar.hide();
+            } else {
+                actionBar.show();
+            }
         });
         findViewById(R.id.btn_logo).setOnClickListener(v -> {
             boolean useLogo = (actionBar.getDisplayOptions() & ActionBar.DISPLAY_USE_LOGO) != 0;

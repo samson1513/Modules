@@ -20,11 +20,11 @@ env:
 android:
   components:
     - tools
-    - platform-tools
+#    - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS
     - android-$ANDROID_API
-    - android-$EMULATOR_API_LEVEL
-    - extra-google-m2repository
+#    - android-$EMULATOR_API_LEVEL
+#    - extra-google-m2repository
 #    - extra-android-m2repository
     - extra-android-support
     - extra
@@ -66,7 +66,7 @@ before_script:
   - source ./google-cloud-sdk/path.bash.inc
 
   # Setup and configure the project
-  - gcloud components update
+#  - gcloud components update
   - echo modules-4b395
   - gcloud config set project modules-4b395
 

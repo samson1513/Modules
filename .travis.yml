@@ -42,8 +42,7 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
   - chmod +x gradlew
   - ./gradlew dependencies || true
-  - openssl aes-256-cbc -K $encrypted_36a497b301fb_key -iv $encrypted_36a497b301fb_iv
-    -in key.json.enc -out key.json -d
+  - openssl aes-256-cbc -K $encrypted_36a497b301fb_key -iv $encrypted_36a497b301fb_iv -in key.json.enc -out key.json -d
 before_script:
 #  - android list sdk --extended --no-ui --all
 #  - echo "y" | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-21,sys-img-x86_64-android-21
@@ -67,9 +66,9 @@ before_script:
   - source /opt/google-cloud-sdk/path.bash.inc
 
   # Setup and configure the project
-  -gcloud components update
-  -echo modules-4b395
-  -gcloud config set project modules-4b395
+  - gcloud components update
+  - echo modules-4b395
+  - gcloud config set project modules-4b395
 
   - gcloud version || true
   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export $CLOUDSDK_CORE_DISABLE_PROMPTS; curl https://sdk.cloud.google.com | bash; fi
